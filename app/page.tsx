@@ -3,6 +3,97 @@ import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
 import { MdNotInterested } from "react-icons/md";
 import { RiTimerLine } from "react-icons/ri";
+import ActionState, {
+  ActionButton,
+  TimerButton,
+  Tree,
+  TreeItemWrapper,
+  TwoBranchTree,
+} from "./tree";
+
+
+import React from 'react';
+import { MdNotInterested } from 'react-icons/md'; // Assuming you're using react-icons for MdNotInterested
+
+// Define the structure of the tree and its branches
+const tree = {
+  type: "Tree",
+  branches: [
+    {
+      type: "TwoBranchTree",
+      items: [
+        {
+          type: "TreeItemWrapper",
+          actionState: {
+            icon: <MdNotInterested />, // Rendered icon
+            text: "accepted"
+          },
+          timerButton: {
+            label: "1"
+          },
+          tree:  {
+            type: "Tree",  // Nested Tree structure inside this item
+            branches: [
+              {
+                type: "TwoBranchTree",
+                items: [
+                  {
+                    type: "TreeItemWrapper",
+                    actionState: {
+                      icon: <MdNotInterested />,
+                      text: "accepted"
+                    },
+                    timerButton: {
+                      label: "1"
+                    }
+                  },
+                  {
+                    type: "ActionButton",
+                    label: "Action"
+                  },
+                  {
+                    type: "TreeItemWrapper",
+                    actionState: {
+                      icon: <MdNotInterested />,
+                      text: "accepted"
+                    },
+                    timerButton: {
+                      label: "1"
+                    },
+                    button: {
+                      label: "new sequence"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+        },
+       
+        {
+          type: "ActionButton",
+          label: "Action"
+        },
+        {
+          type: "TreeItemWrapper",
+          actionState: {
+            icon: <MdNotInterested />,
+            text: "accepted"
+          },
+          timerButton: {
+            label: "1"
+          },
+          button: {
+            label: "new sequence"
+          }
+        }
+      ]
+    }
+  ]
+};
+
+
+
 
 export default function Home() {
   // State to track if the user is currently dragging the element
@@ -69,96 +160,37 @@ export default function Home() {
         }}
         onMouseDown={handleMouseDown} // Start dragging on mouse down
       >
-        {/* Start of the tree structure */}
-        <span role="tree" aria-label="source tree" className="action">
-          <div role="treeitem">
-            {/* Tree group container */}
-            <div
-              role="group"
-              className="grid relative action__container--grid grid-cols-[auto_auto] items-auto gap-0"
-            >
-              {/* First tree item with delay and action state */}
-              <div role="tree-item" className="relative flex flex-col items-center">
-                <div className="relative">
-                  {/* Delay state */}
-                  <div className="justify-center action-delay relative mb-[var(--vertical-offset)] flex flex-col items-center">
-                    <Button className="text-center px-5">
-                      <RiTimerLine className="mr-5" />
-                      <span>1 day</span>
-                    </Button>
-                  </div>
-                  {/* Action state */}
-                  <div
-                    aria-label="Sequence-branch state"
-                    className="relative h-6 w-48 text-gray-400 mx-auto justify-center action-state mb-[var(--vertical-offset)] flex items-center gap-3"
-                  >
-                    <MdNotInterested />
-                    <span className="action-state__text">
-                      still not accepted
-                    </span>
-                  </div>
-                </div>
-                  <div>
-                  <Button>
-                    new sequence
-                  </Button>
-                </div>
-              </div>
-
-              {/* Second tree item with a button */}
-              <div role="tree-item" className="absolute left-[calc(50%-var(--block-w)/2)]">
-                <div className="bg-purple-600 border border-purple-600 rounded-tr-md rounded-b-sm w-[var(--block-w)] h-10 text-center cursor-default relative z-20">
-                  <button
-                    data-test="msg-action-btn"
-                    aria-label="Click to open sequence-action config popup"
-                    aria-haspopup="true"
-                    className="flex items-center h-full absolute left-0 top-0 w-[calc(100%-20px)] z-10 pl-5 text-white"
-                  >
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="26"
-                        viewBox="0 0 23 26"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fill="white"
-                          d="M9.3 1.5c2 0 3.4 1.5 3.4 3.4 0 2.1-1.5 3.8-3.4 3.8C7.5 8.7 6 7 6 5c0-2 1.5-3.4 3.4-3.4zM4.5 4.9c0 3 2.1 5.3 4.8 5.3 2.7 0 4.9-2.4 4.9-5.3C14.2 2.1 12 0 9.3 0S4.5 2.1 4.5 5zm4.8 7.8c5 0 7.6 2 7.9 5.8H1.5c.3-3.8 3-5.8 7.8-5.8zM18 20a.7.7 0 00.7-.7c0-5.2-3.3-8-9.3-8-6 0-9.3 2.8-9.3 8 0 .4.3.7.7.7z"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="action-face__text"> Send an invite </span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Third tree item with an accepted state */}
-              <div role="tree-item" className="relative flex flex-col items-center">
-                <div
-                  aria-label="Sequence-branch state"
-                  className="relative h-6 w-48 text-gray-400 mx-auto justify-center action-state mb-[var(--vertical-offset)] flex items-center gap-3"
-                >
+        <Tree>
+          <TwoBranchTree>
+            <TreeItemWrapper>
+              <ActionState>
+                <span>
                   <MdNotInterested />
-                  <span className="action-state__text"> Accepted</span>
-                </div>
-                <div className="relative">
-                  <div className="w-40 action-delay relative mb-[var(--vertical-offset)] flex flex-col items-center">
-                    <Button className="text-center px-5">
-                      <RiTimerLine className="mr-5" />
-                      <span>1 day</span>
-                    </Button>
-                  </div>
-                </div>
-                <div>
-                  <Button>
-                    new sequence
-                  </Button>
-                </div>
+                </span>
+                <span className="action-state__text">accepted</span>
+              </ActionState>
+              <TimerButton label="1" />
+              <div>
+                <Button>new sequence</Button>
               </div>
-            </div>
-          </div>
-        </span>
+            </TreeItemWrapper>
+            <ActionButton>
+                <span className="">Action</span>
+              </ActionButton>
+            <TreeItemWrapper>
+              <TimerButton label="1" />
+              <ActionState>
+                <span>
+                  <MdNotInterested />
+                </span>
+                <span className="action-state__text">accepted</span>
+              </ActionState>
+              <div>
+                <Button>new sequence</Button>
+              </div>
+            </TreeItemWrapper>
+          </TwoBranchTree>
+        </Tree>
       </div>
     </div>
   );
