@@ -1,0 +1,226 @@
+{
+    "type": "CONNECT",
+    "yesDelay": {
+        "value": 1,
+        "timeUnit": "DAYS"
+    },
+    "noDelay": {
+        "value": 1,
+        "timeUnit": "DAYS"
+    },
+    "message": "",
+    "subject": null,
+    "sequenceEndMode": null,
+    "triggerType": "INVITE_ACCEPTED",
+    "alternativeMessage": "",
+    "alternativeSubject": null,
+    "attachments": null,
+    "yes": {
+        "type": "MESSAGE",
+        "yesDelay": {
+            "value": 1,
+            "timeUnit": "DAYS"
+        },
+        "noDelay": null,
+        "message": null,
+        "subject": null,
+        "sequenceEndMode": null,
+        "triggerType": null,
+        "alternativeMessage": "",
+        "alternativeSubject": null,
+        "attachments": {},
+        "yes": {
+            "type": "VISIT",
+            "yesDelay": {
+                "value": 1,
+                "timeUnit": "DAYS"
+            },
+            "noDelay": null,
+            "message": null,
+            "subject": null,
+            "sequenceEndMode": null,
+            "triggerType": null,
+            "alternativeMessage": null,
+            "alternativeSubject": null,
+            "attachments": null,
+            "yes": {
+                "type": "ENDORSE",
+                "yesDelay": {
+                    "value": 1,
+                    "timeUnit": "DAYS"
+                },
+                "noDelay": null,
+                "message": null,
+                "subject": null,
+                "sequenceEndMode": null,
+                "triggerType": null,
+                "alternativeMessage": null,
+                "alternativeSubject": null,
+                "attachments": null,
+                "yes": {
+                    "type": "FOLLOW",
+                    "yesDelay": {
+                        "value": 1,
+                        "timeUnit": "DAYS"
+                    },
+                    "noDelay": null,
+                    "message": null,
+                    "subject": null,
+                    "sequenceEndMode": null,
+                    "triggerType": null,
+                    "alternativeMessage": null,
+                    "alternativeSubject": null,
+                    "attachments": null,
+                    "yes": {
+                        "type": "IF_EMAIL_AVAILABLE",
+                        "yesDelay": {
+                            "value": 0,
+                            "timeUnit": "DAYS"
+                        },
+                        "noDelay": {
+                            "value": 0,
+                            "timeUnit": "DAYS"
+                        },
+                        "message": null,
+                        "subject": null,
+                        "sequenceEndMode": null,
+                        "triggerType": null,
+                        "alternativeMessage": null,
+                        "alternativeSubject": null,
+                        "attachments": null,
+                        "yes": {
+                            "type": "EMAIL",
+                            "yesDelay": {
+                                "value": 1,
+                                "timeUnit": "DAYS"
+                            },
+                            "noDelay": null,
+                            "message": "",
+                            "subject": "",
+                            "sequenceEndMode": null,
+                            "triggerType": null,
+                            "alternativeMessage": "",
+                            "alternativeSubject": "",
+                            "attachments": {},
+                            "yes": null,
+                            "no": null
+                        },
+                        "no": {
+                            "type": "FIND_EMAIL",
+                            "yesDelay": {
+                                "value": 0,
+                                "timeUnit": "DAYS"
+                            },
+                            "noDelay": null,
+                            "message": null,
+                            "subject": null,
+                            "sequenceEndMode": null,
+                            "triggerType": null,
+                            "alternativeMessage": null,
+                            "alternativeSubject": null,
+                            "attachments": null,
+                            "yes": {
+                                "type": "IF_EMAIL_AVAILABLE",
+                                "yesDelay": {
+                                    "value": 0,
+                                    "timeUnit": "DAYS"
+                                },
+                                "noDelay": {
+                                    "value": 0,
+                                    "timeUnit": "DAYS"
+                                },
+                                "message": null,
+                                "subject": null,
+                                "sequenceEndMode": null,
+                                "triggerType": null,
+                                "alternativeMessage": null,
+                                "alternativeSubject": null,
+                                "attachments": null,
+                                "yes": null,
+                                "no": null
+                            },
+                            "no": null
+                        }
+                    },
+                    "no": null
+                },
+                "no": null
+            },
+            "no": null
+        },
+        "no": null
+    },
+    "no": {
+        "type": "INMAIL",
+        "yesDelay": {
+            "value": 1,
+            "timeUnit": "DAYS"
+        },
+        "noDelay": {
+            "value": 1,
+            "timeUnit": "DAYS"
+        },
+        "message": null,
+        "subject": "",
+        "sequenceEndMode": null,
+        "triggerType": "MESSAGE_RESPONDED",
+        "alternativeMessage": "",
+        "alternativeSubject": "",
+        "attachments": {},
+        "yes": {
+            "type": "WITHDRAW",
+            "yesDelay": {
+                "value": 21,
+                "timeUnit": "DAYS"
+            },
+            "noDelay": null,
+            "message": null,
+            "subject": null,
+            "sequenceEndMode": null,
+            "triggerType": null,
+            "alternativeMessage": null,
+            "alternativeSubject": null,
+            "attachments": null,
+            "yes": {
+                "type": "CONNECT",
+                "yesDelay": {
+                    "value": 1,
+                    "timeUnit": "DAYS"
+                },
+                "noDelay": {
+                    "value": 1,
+                    "timeUnit": "DAYS"
+                },
+                "message": "",
+                "subject": null,
+                "sequenceEndMode": null,
+                "triggerType": "INVITE_ACCEPTED",
+                "alternativeMessage": "",
+                "alternativeSubject": null,
+                "attachments": null,
+                "yes": null,
+                "no": null
+            },
+            "no": null
+        },
+        "no": {
+            "type": "FOLLOW",
+            "yesDelay": {
+                "value": 1,
+                "timeUnit": "DAYS"
+            },
+            "noDelay": null,
+            "message": null,
+            "subject": null,
+            "sequenceEndMode": null,
+            "triggerType": null,
+            "alternativeMessage": null,
+            "alternativeSubject": null,
+            "attachments": null,
+            "yes": null,
+            "no": null
+        }
+    },
+    "templateName": "news",
+    "templateType": "INDIVIDUAL"
+}

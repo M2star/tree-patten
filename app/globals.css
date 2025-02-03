@@ -112,6 +112,15 @@ body {
   --vertical-stick-h: calc(var(--vertical-offset) - 10px);
 }
 
+.action-face{
+  position: relative;
+  margin-bottom: var(--vertical-offset);
+}
+
+.action-face--fork {
+  position: absolute;
+  left: calc(50% - var(--block-w) / 2);
+}
 
 .action-delay:after, .action-face:not(.action-face--bottomstick):after, .action-state:not(.action-state--final):after {
   content: "";
